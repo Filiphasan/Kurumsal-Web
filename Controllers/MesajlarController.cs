@@ -71,7 +71,7 @@ namespace KurumsalWeb.Controllers
                     WebMail.SmtpServer = "smtp.gmail.com";
                     WebMail.EnableSsl = true;
                     WebMail.UserName = "hasaerda@gmail.com";
-                    WebMail.Password = "filip483706";
+                    WebMail.Password = "yourPassword";
                     WebMail.SmtpPort = 587;
                     WebMail.Send(aliciMail, konu, mesaj);
                     if (id != null)
