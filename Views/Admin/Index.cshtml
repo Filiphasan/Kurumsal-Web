@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Kurumsal Site Özet</h2>
+
+
+<!--overview start-->
+
+<hr />
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box blue-bg">
+            <i class="fa fa-picture-o"></i>
+            <div class="count">@ViewBag.blogSay</div>
+            <div class="title">Blog Sayısı</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box brown-bg">
+            <i class="fa fa-list"></i>
+            <div class="count">@ViewBag.kategoriSay</div>
+            <div class="title">Kategori Sayısı</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box dark-bg">
+            <i class="fa fa-comment"></i>
+            <div class="count">@ViewBag.yorumSay</div>
+            <div class="title">Yorum Sayısı</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box green-bg">
+            <i class="fa fa-cubes"></i>
+            <div class="count">@ViewBag.hizmetSay</div>
+            <div class="title">Hizmet Sayısı</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+</div>
+<hr />
+<!--/.row-->
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box blue-bg">
+            <i class="fa fa-cloud-download"></i>
+            <div class="count">@ViewBag.sliderSayisi</div>
+            <div class="title">Slider Sayısı</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box brown-bg">
+            <i class="fa fa-shopping-cart"></i>
+            <div class="count">@ViewBag.encokYorumAlanBlog.Baslik</div>
+            <div class="title">En Çok Yorum Alan Blog</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box dark-bg">
+            <i class="fa fa-thumbs-o-up"></i>
+            <div class="count">@ViewBag.okunmamisMesajSayisi</div>
+            <div class="title">Okunmamış Mesaj Sayısı</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box green-bg">
+            <i class="fa fa-cubes"></i>
+            <div class="count">@ViewBag.okunmusMesajSayisi</div>
+            <div class="title">Okunmuş Mesaj Sayısı</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+</div>
+<hr />

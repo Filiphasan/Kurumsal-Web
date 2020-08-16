@@ -1,0 +1,15 @@
+﻿@using KurumsalWeb.Helper
+@model IEnumerable<KurumsalWeb.Models.Model.Blog>
+<ul class="recent">
+    @foreach (var item in Model)
+    {
+    <li>
+        <a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.Id"><img src="@item.ResimUrl" class="pull-left" alt="@item.Baslik" /></a>
+        <h6><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.Id">@item.Baslik</a></h6>
+        <p>
+            @Html.Raw(item.Icerik.Substring(0,100))...
+        </p>
+    </li>
+    <hr/>
+    }
+</ul>

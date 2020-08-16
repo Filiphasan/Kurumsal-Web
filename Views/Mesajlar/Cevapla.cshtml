@@ -1,0 +1,40 @@
+﻿@model KurumsalWeb.Models.Model.Mesajlar
+@{
+    ViewBag.Title = "Cevapla";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Mesaj Cevaplama</h2>
+<form class="form-validate form-horizontal" action="/Mesajlar/Cevapla" method="post">
+
+    @Html.HiddenFor(x => x.Id)
+    <div class="form-group">
+        <label for="fullname" class="control-label col-lg-2 ">Alıcı Mail <span class="required">*</span></label>
+        <div class="col-lg-10">
+            <input required class=" form-control" name="aliciMail" type="text" value="@Model.Mail" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="fullname" class="control-label col-lg-2 ">Konu <span class="required">*</span></label>
+        <div class="col-lg-10">
+            <input required class=" form-control" name="konu" type="text" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="fullname" class="control-label col-lg-2 ">Mesaj <span class="required">*</span></label>
+        <div class="col-lg-10">
+            <input required class=" form-control" name="mesaj" type="text" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+            <button class="btn btn-info" type="submit">Gönder</button>
+        </div>
+    </div>
+
+</form>
+
+@Html.ActionLink("Geri Dön", "Index", new { }, new { @class = "btn btn-danger" })

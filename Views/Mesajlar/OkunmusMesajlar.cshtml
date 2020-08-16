@@ -1,0 +1,54 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Mesajlar>
+
+@{
+    ViewBag.Title = "OkunmusMesajlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Okunmuş Mesajlar</h2>
+
+<table class="table table-striped">
+    <tr class="active">
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Konu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mesaj)
+        </th>
+        <th>İşlemler</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Konu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mesaj)
+            </td>
+            <td>
+                @Html.ActionLink("Sil", "RealDelete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

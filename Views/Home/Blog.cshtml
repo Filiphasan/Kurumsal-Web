@@ -1,0 +1,83 @@
+﻿@using PagedList.Mvc
+@using PagedList
+@using KurumsalWeb.Models.Model
+@using KurumsalWeb.Helper
+@model IPagedList<Blog>
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="/AnaSayfa"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                    <li class="active">Blog</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                @foreach (var item in Model)
+                {
+                    <article>
+                        <div class="post-image">
+                            <div class="post-heading">
+                                <h3><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.Id">@item.Baslik</a></h3>
+                            </div>
+                            <img src="@item.ResimUrl" alt="@item.Baslik" />
+                        </div>
+                        <p>
+                            @Html.Raw(item.Icerik.Substring(0,250))...
+                        </p>
+                        <div class="bottom-article">
+                            <ul class="meta-post">
+                                <li><i class="icon-folder-open"></i><h5> @item.Kategori.KategoriAd</h5></li>
+                                @*<li><i class="icon-comments"></i><a href="#">4 Comments</a></li>*@
+                            </ul>
+                            <a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.Id" class="pull-right btn btn-info">Devamını Oku <i class="icon-angle-right"></i></a>
+                        </div>
+                    </article>
+                }
+            <div class="pagination">
+                @Html.PagedListPager(Model, sayfa => Url.Action("Blog", new { sayfa }),PagedListRenderOptions.Classic)
+            </div>
+            </div>
+            <br />
+            <div class="col-lg-4">
+                <aside class="right-sidebar">
+                    <div class="widget">
+                        <form class="form-search">
+                            <input class="form-control" type="text" placeholder="Ara..">
+                        </form>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widgetheading">Kategoriler</h5>
+                        @{ 
+                            Html.RenderAction("BlogKategoriPartial", "Home");
+                        }
+                    </div>
+                    <div class="widget">
+                        <h5 class="widgetheading">Son Blog Yazıları</h5>
+                        @{ 
+                            Html.RenderAction("SonBloglarPartial","Home");
+                        }
+                    </div>
+                    
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+
+@{
+    Html.RenderAction("FooterPartial", "Home");
+}
+

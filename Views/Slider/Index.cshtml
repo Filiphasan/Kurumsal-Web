@@ -1,0 +1,47 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Slider Bölümü</h2>
+
+<p>
+    @Html.ActionLink("Yeni Slider Alanı Ekle", "Create", new { }, new { @class = "btn btn-success" })
+</p>
+<table class="table table-bordered">
+    <tr class="active" >
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResimUrl)
+        </th>
+        <th>İşlemler</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baslik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aciklama)
+            </td>
+            <td>
+                <img class="img-responsive" width="200" height="125" src="@item.ResimUrl" />
+            </td>
+            <td>
+                @Html.ActionLink("Güncelle", "Edit", new { id = item.Id }, new { @class = "btn btn-info" }) &nbsp;&nbsp;|&nbsp;&nbsp;
+                @Html.ActionLink("Detaylar", "Details", new { id = item.Id }, new { @class = "btn btn-default" }) &nbsp;&nbsp;|&nbsp;&nbsp;
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

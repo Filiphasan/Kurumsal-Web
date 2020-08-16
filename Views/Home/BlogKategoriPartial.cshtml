@@ -1,0 +1,9 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Kategoriler>
+    @using KurumsalWeb.Helper
+    <ul class="cat">
+        <li><i class="icon-angle-right"></i><a href="/BlogPost/">Tümü</a><span></span></li>
+        @foreach (var item in Model)
+        {
+            <li><i class="icon-angle-right"></i><a href="/Home/BlogKategori/@item.Id">@item.KategoriAd</a><span>(@item.Blogs.Count())</span></li>
+        }
+    </ul>

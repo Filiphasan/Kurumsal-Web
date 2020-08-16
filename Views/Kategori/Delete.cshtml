@@ -1,0 +1,42 @@
+﻿@model KurumsalWeb.Models.Model.Kategoriler
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Kategori Sil</h2>
+
+<h3>Seçili Kategoriyi Silmek İstiyor musunuz?</h3>
+<div>
+    <h4>Kategoriler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KategoriAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KategoriAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Aciklama)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Sil" class="btn btn-danger" /> &nbsp;&nbsp;|&nbsp;&nbsp;
+    @Html.ActionLink("Geri Dön", "Index", new { }, new { @class = "btn btn-primary" })
+</div>
+    }
+</div>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Hakkimizda>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Hakkımızda Bölümü</h2>
+
+<table class="table table-bordered">
+    <tr class="active">
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResimUrl)
+        </th>
+        <th>İşlemler</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.Raw(item.Aciklama.Substring(0,200))
+    </td>
+    <td>
+        <img src="@item.ResimUrl" class="img-responsive" width="400" height="225" />
+    </td>
+    <td>
+        @Html.ActionLink("Güncelle", "Edit", new { id = item.Id }, new { @class = "btn btn-info" })
+    </td>
+</tr>
+    }
+
+</table>

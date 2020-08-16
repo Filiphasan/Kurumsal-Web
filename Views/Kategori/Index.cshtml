@@ -1,0 +1,41 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Kategoriler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Kategori Bölümü</h2>
+
+<p>
+    @Html.ActionLink("Yeni Kategori Ekle", "Create",new { },new { @class="btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KategoriAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriAd)
+            </td>
+            <td>
+                @Html.Raw(item.Aciklama)
+            </td>
+            <td>
+                @Html.ActionLink("Güncelle", "Edit", new { id = item.Id }, new { @class = "btn btn-info" }) &nbsp;&nbsp;|&nbsp;&nbsp;
+                @Html.ActionLink("Detaylar", "Details", new { id = item.Id }, new { @class = "btn btn-default" }) &nbsp;&nbsp;|&nbsp;&nbsp;
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

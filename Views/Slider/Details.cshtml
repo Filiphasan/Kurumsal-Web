@@ -1,0 +1,43 @@
+﻿@model KurumsalWeb.Models.Model.Slider
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Slider</h2>
+
+<div>
+    <h4 class="text-center">Detaylar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimUrl)
+        </dt>
+
+        <dd>
+            <img class="img-responsive" width="800" height="450" src="@Model.ResimUrl" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Güncelle", "Edit", new { id = Model.Id }, new { @class = "btn btn-info" }) |
+    @Html.ActionLink("Geriye Dön", "Index", new { }, new { @class = "btn btn-danger" })
+</p>

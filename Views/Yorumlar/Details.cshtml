@@ -1,0 +1,59 @@
+﻿@model KurumsalWeb.Models.Model.Yorumlar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorum Detaylar</h2>
+
+<div>
+    <h4 class="text-center">Bilgiler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Blog.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Blog.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eposta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eposta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yorum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yorum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Onay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Onay)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Onayla", "Edit", new { id = Model.Id }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Geriye Dön", "Index", new { }, new { @class = "btn btn-danger" })
+</p>
